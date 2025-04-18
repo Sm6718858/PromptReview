@@ -57,5 +57,5 @@ Feel free to fork the repo and submit pull requests. All contributions are welco
 
 
 🔗 Connect with Me
-🌐 LinkedIn - Shivam Mishra
+[🌐 LinkedIn - Shivam Mishra](https://www.linkedin.com/in/shivam134/)
 📩 Email: sm6718858@gmail.com
