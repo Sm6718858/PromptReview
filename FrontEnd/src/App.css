@@ -1,0 +1,249 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --editor-bg: #011627;
+  --output-bg: #0d1117;
+  --header-bg: #1e1e1e;
+  --accent-blue: #4cc9f0;
+  --accent-purple: #b084eb;
+  --button-bg: #6e40c9;
+  --button-hover: #5a2fad;
+  --text-primary: #d6deeb;
+  --text-secondary: #b4b9bf;
+  --border-color: #1e2d3d;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #0a0e17;
+  color: var(--text-primary);
+}
+
+/* Main Layout */
+main {
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+/* Section Headers */
+.section-header {
+  padding: 15px 20px;
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.title-container h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+/* Left Section - Editor */
+.left {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background: var(--editor-bg);
+}
+
+.code {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.code::-webkit-scrollbar {
+  display: none;
+}
+
+/* Right Section - Output */
+.right {
+  flex: 1;
+  min-width: 300px;
+  background: var(--output-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.output-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  line-height: 1.7;
+  scrollbar-width: none;
+}
+
+.output-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Button Styles */
+.review-btn {
+  background: var(--button-bg);
+  color: white;
+  padding: 12px 24px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  margin: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.review-btn:hover {
+  background: var(--button-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(110, 64, 201, 0.3);
+}
+
+.review-btn:active {
+  transform: translateY(0);
+}
+
+.review-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Loader Animation */
+.loader {
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid var(--accent-blue);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Markdown Content Styling */
+.output-content h1, 
+.output-content h2, 
+.output-content h3 {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.output-content pre {
+  background-color: var(--editor-bg);
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 1rem 0;
+  border: 1px solid var(--border-color);
+}
+
+.output-content code {
+  font-family: 'Fira Code', monospace;
+}
+
+/* Download Button Styles */
+.download-btn {
+  background: transparent;
+  border: none;
+  color: #b084eb;
+  cursor: pointer;
+  padding: 4px;
+  margin-left: auto;
+  border-radius: 4px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.download-btn:hover {
+  background: rgba(176, 132, 235, 0.1);
+  transform: translateY(-1px);
+}
+
+.download-btn:disabled {
+  color: #555;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.download-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Update title container for better spacing */
+.title-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    padding: 12px;
+  }
+  
+  .left, .right {
+    min-width: 100%;
+    height: 50vh;
+  }
+  
+  .review-btn {
+    margin: 12px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-header {
+    padding: 12px 15px;
+  }
+  
+  .title-container h2 {
+    font-size: 1rem;
+  }
+  
+  .subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .output-content {
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+}
